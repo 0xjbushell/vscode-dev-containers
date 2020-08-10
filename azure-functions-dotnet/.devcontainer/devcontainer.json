@@ -1,27 +1,22 @@
 {
-  "name": "Azure Functions - Python 3.7 development environment",
+  "name": "Azure Functions - .NET Core 3.1 development environment",
 	"dockerFile": "Dockerfile",
 	"forwardPorts": [ 7071 ],
 	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
 
 	// Set *default* container specific settings.json values on container create.
 	"settings":  {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.pylintPath": "/usr/bin/pylint",
-		"python.pythonPath": "/usr/local/bin/python",
+		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-azuretools.vscode-azurefunctions",
-		"ms-azuretools.vscode-docker",
-		"ms-python.python"
+		"ms-dotnettools.csharp"
 	],
 	
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install pipenv && pipenv install",
+	// "postCreateCommand": "dotnet restore",
 
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
 	// "remoteUser": "vscode"
